@@ -1,115 +1,73 @@
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
-}
-html {
-  font-size: 18px;
-  font-family: "Open Sans", sans-serif;
-}
-main {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f1f1f1;
+  padding: 0;
+  box-sizing: border-box;
 }
 #container {
-  width: 30%;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1c5253;
+  color: #fff;
+}
+section {
+  width: 50%;
   height: 50%;
-  border: 1px solid #fff;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  box-shadow: 0 12px 27px 8px rgba(141, 153, 165, 0.5);
+  background-color: #17a398;
 }
-#container header {
+.header {
   width: 100%;
-  height: 10%;
+  height: 15%;
+  border-bottom: 2px solid silver;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background-color: #ebebff;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  align-items: center;
 }
-#container header .password-input {
+.header .password-input {
   width: 90%;
-  height: 100%;
-  border: none;
-  outline: none;
-  border-top: 8px;
-  background-color: #ebebff;
-  padding: 5px;
-  color: #577399;
-  font-size: 1.3rem;
+  height: 70%;
 }
-#container header .fa-copy {
-  font-size: 1.5rem;
-  color: #577399;
-  cursor: pointer;
-  transition: color 0.6s;
-}
-#container header .fa-copy:hover {
-  color: #7d94b5;
-}
-#container section {
+.content {
   width: 100%;
-  height: 80%;
+  height: 85%;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  gap: 35px;
-  color: #577399;
+  gap: 10px;
 }
-#container section label {
+.content label {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+.fa-copy {
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+  margin-left: 10px;
+}
+.fa-copy:hover {
+  color: #1c5253;
+}
+.submit {
+  width: 100%;
+  height: 60px;
+  cursor: pointer;
+  margin-top: auto;
+}
+.content .content-header {
+  margin: auto;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 70%;
+  flex-direction: column;
 }
-#container section .passwordLength {
-  width: 100px;
-  height: 30px;
-  outline: none;
-  border-radius: 5px;
-  border: 2px solid #577399;
-  padding: 5px;
-  color: #577399;
-  box-shadow: 0 2px 7px 3px rgba(141, 153, 165, 0.5);
+.content .content-header .passwordLength {
+  width: 30%;
 }
-#container section .checkbox {
-  accent-color: #577399;
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-  transition: height 0.5s ease-in;
-}
-
-#container footer {
-  width: 100%;
-  height: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#container footer .submit {
-  background-color: #577399;
-  color: #ebebff;
-  width: 100%;
-  height: 100%;
-  outline: 0;
-  border: 0;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  font-size: 1.2rem;
-  transition: background-color 0.6s;
-  cursor: pointer;
-}
-#container footer .submit:hover {
-  background-color: #7d94b5;
-  color: #ebebff;
+.content .content-footer {
+  margin-top: auto;
 }
