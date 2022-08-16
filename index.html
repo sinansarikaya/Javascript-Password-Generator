@@ -4,61 +4,80 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
     />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Password Generator</title>
   </head>
   <body>
-    <div id="container">
-      <section>
-        <div class="header">
-          <input type="text" class="password-input" />
+    <main>
+      <div id="container">
+        <header>
+          <input
+            type="text"
+            class="password-input"
+            placeholder="Password Generator"
+          />
           <i class="fa-solid fa-copy" onclick="copyPw()"></i>
-        </div>
-        <div class="content">
-          <div class="content-header">
-            <label for="passwordLength">
-              Password length
-              <input
-                type="number"
-                class="passwordLength"
-                id="passwordLength"
-                value="10"
-                min="1"
-                max="20"
-              />
-            </label>
-            <label for="upperCaseCheck">
-              Contain Uppercase Letters
-              <input type="checkbox" id="upperCaseCheck" checked />
-            </label>
-            <label for="lowerCaseCheck">
-              Contain Lowercase Letters
-              <input type="checkbox" id="lowerCaseCheck" checked />
-            </label>
-            <label for="numberCheck">
-              Contain Numbers
-              <input type="checkbox" id="numberCheck" checked />
-            </label>
-            <label for="symbolCheck">
-              Contain Symnols
-              <input type="checkbox" id="symbolCheck" checked />
-            </label>
-          </div>
-          <div class="content-footer">
+        </header>
+        <section>
+          <label for="passwordLength">
+            Password length
             <input
-              type="submit"
-              class="submit"
-              onclick="generatePassword()"
-              value="Generate"
+              type="number"
+              class="passwordLength"
+              id="passwordLength"
+              value="10"
+              min="1"
+              max="20"
             />
-          </div>
-        </div>
-      </section>
-    </div>
+          </label>
+          <label for="upperCaseCheck">
+            Contain Uppercase Letters
+            <input
+              type="checkbox"
+              class="checkbox"
+              id="upperCaseCheck"
+              checked
+            />
+          </label>
+          <label for="lowerCaseCheck">
+            Contain Lowercase Letters
+            <input
+              type="checkbox"
+              class="checkbox"
+              id="lowerCaseCheck"
+              checked
+            />
+          </label>
+          <label for="numberCheck">
+            Contain Numbers
+            <input type="checkbox" class="checkbox" id="numberCheck" checked />
+          </label>
+          <label for="symbolCheck">
+            Contain Symnols
+            <input type="checkbox" class="checkbox" id="symbolCheck" checked />
+          </label>
+        </section>
+        <footer>
+          <input
+            type="submit"
+            class="submit"
+            onclick="generatePassword()"
+            value="Generate"
+          />
+        </footer>
+      </div>
+    </main>
     <script src="js/app.js"></script>
   </body>
 </html>
