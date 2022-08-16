@@ -16,38 +16,46 @@
       <section>
         <div class="header">
           <input type="text" class="password-input" />
-          <i class="fa-solid fa-copy copyButton" onclick="copyPw()"></i>
+          <i class="fa-solid fa-copy" onclick="copyPw()"></i>
         </div>
         <div class="content">
-          <label for="passwordLength">
-            Password length
+          <div class="content-header">
+            <label for="passwordLength">
+              Password length
+              <input
+                type="number"
+                class="passwordLength"
+                id="passwordLength"
+                value="10"
+                min="1"
+                max="20"
+              />
+            </label>
+            <label for="upperCaseCheck">
+              Contain Uppercase Letters
+              <input type="checkbox" id="upperCaseCheck" checked />
+            </label>
+            <label for="lowerCaseCheck">
+              Contain Lowercase Letters
+              <input type="checkbox" id="lowerCaseCheck" checked />
+            </label>
+            <label for="numberCheck">
+              Contain Numbers
+              <input type="checkbox" id="numberCheck" checked />
+            </label>
+            <label for="symbolCheck">
+              Contain Symnols
+              <input type="checkbox" id="symbolCheck" checked />
+            </label>
+          </div>
+          <div class="content-footer">
             <input
-              type="number"
-              class="passwordLength"
-              id="passwordLength"
-              value="10"
-              min="1"
-              max="20"
+              type="submit"
+              class="submit"
+              onclick="generatePassword()"
+              value="Generate"
             />
-          </label>
-
-          <label for="upperCaseCheck">
-            Contain Uppercase Letters
-            <input type="checkbox" id="upperCaseCheck" checked />
-          </label>
-          <label for="lowerCaseCheck">
-            Contain Lowercase Letters
-            <input type="checkbox" id="lowerCaseCheck" checked />
-          </label>
-          <label for="numberCheck">
-            Contain Numbers
-            <input type="checkbox" id="numberCheck" checked />
-          </label>
-          <label for="symbolCheck">
-            Contain Symnols
-            <input type="checkbox" id="symbolCheck" checked />
-          </label>
-          <input type="submit" onclick="generatePassword()" value="Generate" />
+          </div>
         </div>
       </section>
     </div>
