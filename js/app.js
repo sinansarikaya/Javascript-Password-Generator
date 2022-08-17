@@ -1,5 +1,5 @@
-const passwordLength = document.querySelector(".passwordLength");
 const passwordInput = document.querySelector(".password-input");
+const passwordLength = document.querySelector(".passwordLength");
 const upperCaseCheck = document.querySelector("#upperCaseCheck");
 const lowerCaseCheck = document.querySelector("#lowerCaseCheck");
 const numberCheck = document.querySelector("#numberCheck");
@@ -105,22 +105,42 @@ function isUpperCase(myString) {
 
 function handleChange() {
   let point = 0;
+
+  point = 0;
+  bar.style.width = "5%";
+  bar.innerHTML = "0%";
+  bar.style.backgroundColor = "#577399";
+
+  if (passwordInput.value.match(/([A-Z])/)) {
+    point += 1;
+    upperCaseCheck.checked = true;
+  } else {
+    upperCaseCheck.checked = false;
+  }
+  if (passwordInput.value.match(/([a-z])/)) {
+    point += 1;
+    lowerCaseCheck.checked = true;
+  } else {
+    lowerCaseCheck.checked = false;
+  }
+  if (passwordInput.value.match(/([0-9])/)) {
+    point += 1;
+    numberCheck.checked = true;
+  } else {
+    numberCheck.checked = false;
+  }
+  if (passwordInput.value.match(/([~,!,@,#,$,%,^,&,*,(,),_,-,+,=,|,?])/)) {
+    point += 1;
+    symbolCheck.checked = true;
+  } else {
+    symbolCheck.checked = false;
+  }
   if (passwordInput.value.length <= 7) {
     point = 0;
-  } else {
-    if (passwordInput.value.match(/([A-Z])/)) {
-      point += 1;
-    }
-    if (passwordInput.value.match(/([a-z])/)) {
-      point += 1;
-    }
-    if (passwordInput.value.match(/([0-9])/)) {
-      point += 1;
-    }
-    if (passwordInput.value.match(/([~,!,@,#,$,%,^,&,*,(,),_,-,+,=,|,?])/)) {
-      point += 1;
-    }
   }
+
+  passwordLength.value = passwordInput.value.length;
+
   console.log(point);
   if (point == 1) {
     bar.style.width = "25%";

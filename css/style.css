@@ -117,6 +117,7 @@ main {
 #container section .strengthBar .bar {
   width: 5%;
   height: 100%;
+  line-height: 30px;
   background-color: #577399;
   color: #fff;
   transition: width 1s;
@@ -147,7 +148,7 @@ main {
 }
 @media (max-width: 1200px) {
   #alert {
-    width: 40%;
+    width: 50%;
   }
   #container {
     width: 60%;
@@ -155,7 +156,7 @@ main {
 }
 @media (max-width: 650px) {
   #alert {
-    width: 60%;
+    width: 80%;
   }
   #container {
     width: 80%;
@@ -166,7 +167,7 @@ main {
     font-size: 15px;
   }
   #alert {
-    width: 70%;
+    width: 90%;
   }
   #container {
     width: 90%;
@@ -177,7 +178,7 @@ main {
     font-size: 13px;
   }
   #alert {
-    width: 80%;
+    width: 95%;
   }
   #container {
     width: 95%;

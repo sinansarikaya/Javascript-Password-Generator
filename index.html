@@ -29,7 +29,7 @@
             type="text"
             class="password-input"
             placeholder="Password Generator"
-            onchange="handleChange()"
+            oninput="handleChange()"
           />
           <i class="fa-solid fa-copy" onclick="copyPw()"></i>
         </header>
@@ -40,36 +40,26 @@
               type="number"
               class="passwordLength"
               id="passwordLength"
-              value="10"
+              value="8"
               min="1"
               max="20"
             />
           </label>
           <label for="upperCaseCheck">
             Contain Uppercase Letters
-            <input
-              type="checkbox"
-              class="checkbox"
-              id="upperCaseCheck"
-              checked
-            />
+            <input type="checkbox" class="checkbox" id="upperCaseCheck" />
           </label>
           <label for="lowerCaseCheck">
             Contain Lowercase Letters
-            <input
-              type="checkbox"
-              class="checkbox"
-              id="lowerCaseCheck"
-              checked
-            />
+            <input type="checkbox" class="checkbox" id="lowerCaseCheck" />
           </label>
           <label for="numberCheck">
             Contain Numbers
-            <input type="checkbox" class="checkbox" id="numberCheck" checked />
+            <input type="checkbox" class="checkbox" id="numberCheck" />
           </label>
           <label for="symbolCheck">
-            Contain Symnols
-            <input type="checkbox" class="checkbox" id="symbolCheck" checked />
+            Contain Symbols
+            <input type="checkbox" class="checkbox" id="symbolCheck" />
           </label>
           <div class="strengthBar">
             <div class="bar">0%</div>
