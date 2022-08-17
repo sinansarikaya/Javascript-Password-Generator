@@ -5,6 +5,7 @@ const lowerCaseCheck = document.querySelector("#lowerCaseCheck");
 const numberCheck = document.querySelector("#numberCheck");
 const symbolCheck = document.querySelector("#symbolCheck");
 const copyButton = document.querySelector(".copyButton");
+const alert = document.querySelector(".alert");
 
 const upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const lowerLetters = "abcdefghijklmnopqrstuvwxyz";
@@ -27,11 +28,6 @@ function getSymbols() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-console.log(getUpperLetters());
-console.log(getLowerLetters());
-console.log(getNumbers());
-console.log(getSymbols());
-
 function generate() {
   pw = [];
   if (upperCaseCheck.checked) {
@@ -47,8 +43,6 @@ function generate() {
     pw.push(getSymbols());
   }
 
-  //   pw = String(pw);
-  //   pw = pw.replace(",", "");
   password = "";
   password += pw;
 
@@ -59,25 +53,47 @@ function generate() {
   return password;
 }
 
-console.log(generate());
-
 function generatePassword() {
-  const len = passwordLength.value;
-  let pass = "";
-  for (let i = 0; i < len; i++) {
-    const x = generate();
-    pass += x;
-  }
-  pass = pass.slice(0, passwordLength.value);
+  if (
+    passwordLength.value &&
+    passwordLength.value >= 4 &&
+    passwordLength.value <= 25 &&
+    generate() != ""
+  ) {
+    const len = passwordLength.value;
+    let pass = "";
+    for (let i = 0; i < len; i++) {
+      const x = generate();
+      pass += x;
+    }
+    pass = pass.slice(0, passwordLength.value);
 
-  passwordInput.value = pass;
+    passwordInput.value = pass;
+  } else if (generate() == "") {
+    alertShow("Select at least one checkbox!", "#fe5f5580");
+  } else if (passwordLength.value < 4) {
+    alertShow("Minimum 4 characters!", "#fe5f5580");
+  } else if (passwordLength.value > 25) {
+    alertShow("Maximum 25 characters!", "#fe5f5580");
+  } else {
+    alertShow("Sayi gir len!", "#fe5f5580");
+  }
 }
 
-passwordLength.addEventListener("change", () => {
-  length = passwordLength.value;
-  console.log(passwordLength.value);
-});
-
 function copyPw() {
-  navigator.clipboard.writeText(passwordInput.value);
+  if (!passwordInput.value) {
+    alertShow("Password not generated yet!", "#fe5f5580");
+  } else {
+    navigator.clipboard.writeText(passwordInput.value);
+    alertShow("Password copied!", "#40ca777f");
+  }
+}
+
+function alertShow(msg, clr) {
+  alert.innerHTML = msg;
+  alert.style.bottom = "0";
+  alert.style.backgroundColor = clr;
+  setTimeout(() => {
+    alert.style.bottom = "-75px";
+  }, 2000);
 }
