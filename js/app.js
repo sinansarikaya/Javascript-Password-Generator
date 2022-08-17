@@ -6,6 +6,7 @@ const numberCheck = document.querySelector("#numberCheck");
 const symbolCheck = document.querySelector("#symbolCheck");
 const copyButton = document.querySelector(".copyButton");
 const alert = document.querySelector(".alert");
+const bar = document.querySelector(".bar");
 
 const upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const lowerLetters = "abcdefghijklmnopqrstuvwxyz";
@@ -67,8 +68,8 @@ function generatePassword() {
       pass += x;
     }
     pass = pass.slice(0, passwordLength.value);
-
     passwordInput.value = pass;
+    handleChange();
   } else if (generate() == "") {
     alertShow("Select at least one checkbox!", "#fe5f5580");
   } else if (passwordLength.value < 4) {
@@ -96,4 +97,50 @@ function alertShow(msg, clr) {
   setTimeout(() => {
     alert.style.bottom = "-75px";
   }, 2000);
+}
+
+function isUpperCase(myString) {
+  return myString == myString.toUpperCase();
+}
+
+function handleChange() {
+  let point = 0;
+  if (passwordInput.value.length <= 7) {
+    point = 0;
+  } else {
+    if (passwordInput.value.match(/([A-Z])/)) {
+      point += 1;
+    }
+    if (passwordInput.value.match(/([a-z])/)) {
+      point += 1;
+    }
+    if (passwordInput.value.match(/([0-9])/)) {
+      point += 1;
+    }
+    if (passwordInput.value.match(/([~,!,@,#,$,%,^,&,*,(,),_,-,+,=,|,?])/)) {
+      point += 1;
+    }
+  }
+  console.log(point);
+  if (point == 1) {
+    bar.style.width = "25%";
+    bar.style.backgroundColor = "#C21010";
+    bar.innerHTML = "25%";
+  } else if (point == 2) {
+    bar.style.width = "50%";
+    bar.innerHTML = "50%";
+    bar.style.backgroundColor = "#EE964B";
+  } else if (point == 3) {
+    bar.style.width = "75%";
+    bar.innerHTML = "75%";
+    bar.style.backgroundColor = "#F6AE2D";
+  } else if (point == 4) {
+    bar.style.width = "100%";
+    bar.innerHTML = "100%";
+    bar.style.backgroundColor = "#4FB477";
+  } else if (!passwordInput.value) {
+    bar.style.width = "5%";
+    bar.innerHTML = "0%";
+  }
+  return;
 }

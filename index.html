@@ -29,6 +29,7 @@
             type="text"
             class="password-input"
             placeholder="Password Generator"
+            onchange="handleChange()"
           />
           <i class="fa-solid fa-copy" onclick="copyPw()"></i>
         </header>
@@ -70,6 +71,9 @@
             Contain Symnols
             <input type="checkbox" class="checkbox" id="symbolCheck" checked />
           </label>
+          <div class="strengthBar">
+            <div class="bar">0%</div>
+          </div>
         </section>
         <footer>
           <input
